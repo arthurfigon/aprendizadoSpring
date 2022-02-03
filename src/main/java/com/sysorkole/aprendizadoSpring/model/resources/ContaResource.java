@@ -1,21 +1,19 @@
 package com.sysorkole.aprendizadoSpring.model.resources;
 
 import com.sysorkole.aprendizadoSpring.model.entities.Cliente;
+import com.sysorkole.aprendizadoSpring.model.entities.Conta;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteResource {
-
-    public static Cliente clienteCriado;
+@RequestMapping(value = "/contas")
+public class ContaResource {
 
     @GetMapping
-    public ResponseEntity<Cliente> findAll(){
-        Cliente cliente = new Cliente(1L, "Arthur", "01234567891", "arthur@gmail.com", "21 99999-9999");
-        clienteCriado = cliente;
-        return ResponseEntity.ok().body(cliente);
+    public ResponseEntity<Conta> findAll(){
+        Conta conta = new Conta(1L, 1L, 30.00, "1234567", ClienteResource.clienteCriado);
+        return ResponseEntity.ok().body(conta);
     }
 }
